@@ -1,11 +1,13 @@
 package course2.lesson2__11.service;
 
 import course2.lesson2__11.ShoppingCart;
+import org.apache.catalina.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.Set;
 
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
@@ -26,5 +28,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         }
         log.info("The following items have been added to the shopping cart:{}", itemsIds);
 
+    }
+
+    @Override
+    public Set<Integer> getItemsIds() {
+        log.info("getItemsIds has been called");
+        return shoppingCart.getItems();
     }
 }
